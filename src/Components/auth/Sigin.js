@@ -93,7 +93,7 @@ function Signin(props) {
                     color="primary"
                     variant="contained"
                     type="submit"
-                    size="large"
+                    size="small"
                   >
                     Create an account
                   </Button>
