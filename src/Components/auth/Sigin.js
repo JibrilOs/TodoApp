@@ -9,16 +9,14 @@ const useStyles = makeStyles((theme) => ({
   root: {},
 }));
 
-function Signin(props) {
+function Signin({ email, setEmail, user, setUser, password, setPassword }) {
   const classes = useStyles();
 
   //   const [values, setValues] = useState({
   //     email: "",
   //     password: "",
   //   });
-  const [email, setEmail] = useState("");
 
-  const [password, setPassword] = useState("");
   //   const handleChange = (prop) => (event) => {
   //     setValues({ [prop]: event.target.value });
   //   };
@@ -26,7 +24,7 @@ function Signin(props) {
     e.preventDefault();
     fireBase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
+      .signInWithEmailAndPassword(email, password)
       .then((cre) => console.log(cre))
       .catch((error) => {
         var errorCode = error.code;
@@ -36,6 +34,19 @@ function Signin(props) {
         // ..
       });
   };
+
+  // useEffect to check if we have user
+  useEffect(() => {
+    fireBase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+        var uid = user.uid;
+        // ...
+      } else {
+        <Typography>User DOestn Exist</Typography>;
+      }
+    });
+  }, []);
 
   return (
     <form
