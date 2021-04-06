@@ -7,6 +7,7 @@ import { Container, CssBaseline, Box, Typography } from "@material-ui/core";
 import Navbar from "./Components/layout/Navbar"
 import Signin from "./Components/auth/Sigin";
 import Create from "./Components/auth/Create";
+import { fireBase } from "./Components/auth/Firebase";
 
 const useStyles = makeStyles({
   root: {
@@ -23,12 +24,15 @@ function App() {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const handleLogout = () => {
+    fireBase.auth().signOut();
+  };
 
   return (
     <Router>
       <Container maxWidth="xl" className={classes.root}>
         <Box className={classes.box}>
-          <Navbar />
+          <Navbar handleLogout={handleLogout} />
           {user ? (
             <Typography>Welcome </Typography>
           ) : (
