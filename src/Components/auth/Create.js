@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { fireBase } from "./Firebase";
 import "firebase/auth";
@@ -9,16 +10,14 @@ const useStyles = makeStyles((theme) => ({
   root: {},
 }));
 
-function Create(props) {
+function Create({ email, setEmail, user, setUser, password, setPassword }) {
   const classes = useStyles();
 
   //   const [values, setValues] = useState({
   //     email: "",
   //     password: "",
   //   });
-  const [email, setEmail] = useState("");
 
-  const [password, setPassword] = useState("");
   //   const handleChange = (prop) => (event) => {
   //     setValues({ [prop]: event.target.value });
   //   };
@@ -115,7 +114,13 @@ function Create(props) {
                     type="submit"
                     size="small"
                   >
-                     Login
+                    <Link
+                      to="/"
+                      style={{ textDecoration: "none" }}
+                      className="Link"
+                    >
+                      Login
+                    </Link>
                   </Button>
                 </Typography>
               </Typography>

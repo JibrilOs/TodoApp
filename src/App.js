@@ -27,6 +27,17 @@ function App() {
   const handleLogout = () => {
     fireBase.auth().signOut();
   };
+   useEffect(() => {
+     fireBase.auth().onAuthStateChanged((user) => {
+       if (user) {
+         setUser(user);
+         var uid = user.uid;
+         // ...
+       } else {
+         <Typography>User DOestn Exist</Typography>;
+       }
+     });
+   }, []);
 
   return (
     <Router>

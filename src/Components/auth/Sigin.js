@@ -1,4 +1,5 @@
-import React, { useEffect, useState, shadows } from "react";
+import React from "react";
+import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 
 import { fireBase } from "./Firebase";
 import "firebase/auth";
@@ -36,17 +37,6 @@ function Signin({ email, setEmail, user, setUser, password, setPassword }) {
   };
 
   // useEffect to check if we have user
-  useEffect(() => {
-    fireBase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-        var uid = user.uid;
-        // ...
-      } else {
-        <Typography>User DOestn Exist</Typography>;
-      }
-    });
-  }, []);
 
   return (
     <form
@@ -106,7 +96,12 @@ function Signin({ email, setEmail, user, setUser, password, setPassword }) {
                     type="submit"
                     size="small"
                   >
-                    Create an account
+                    <Link to="/signup" style={{   textDecoration:   "none"   }} className="Link">
+                     
+                                                      Create an account
+                    
+                    
+                    </Link>
                   </Button>
                 </Typography>
               </Typography>
