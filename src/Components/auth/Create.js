@@ -102,12 +102,12 @@ function Create(props) {
                 size="large"
                 fullWidth
               >
-                 Signup
+                Signup
               </Button>
             </Grid>
             <Grid item xs={12}>
               <Typography align="center">
-                <Typography variant="body1">Dont Have account?</Typography>
+                <Typography variant="body1">Already Have account ?</Typography>
                 <Typography variant="body1">
                   <Button
                     color="primary"
@@ -115,7 +115,7 @@ function Create(props) {
                     type="submit"
                     size="small"
                   >
-                    Create an account
+                     Login
                   </Button>
                 </Typography>
               </Typography>

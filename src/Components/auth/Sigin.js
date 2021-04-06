@@ -87,7 +87,7 @@ function Signin(props) {
             </Grid>
             <Grid item xs={12}>
               <Typography align="center">
-                <Typography variant="body1">Dont Have account?</Typography>
+                <Typography variant="body1">Dont have an account?</Typography>
                 <Typography variant="body1">
                   <Button
                     color="primary"
