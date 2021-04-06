@@ -58,6 +58,26 @@ function Create(props) {
               <TextField
                 type="text"
                 id="outlined-basic"
+                label="First Name"
+                variant="outlined"
+                onChange={(e) => setEmail(e.target.value)}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                type="text"
+                id="outlined-basic"
+                label="Surname"
+                variant="outlined"
+                onChange={(e) => setEmail(e.target.value)}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                type="text"
+                id="outlined-basic"
                 label="EMAIL"
                 variant="outlined"
                 onChange={(e) => setEmail(e.target.value)}
@@ -82,7 +102,7 @@ function Create(props) {
                 size="large"
                 fullWidth
               >
-                Login
+                 Signup
               </Button>
             </Grid>
             <Grid item xs={12}>
