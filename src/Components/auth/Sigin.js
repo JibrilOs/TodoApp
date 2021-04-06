@@ -46,7 +46,7 @@ function Signin({ email, setEmail, user, setUser, password, setPassword }) {
       style={{ width: "50%", margin: " 22px auto" }}
     >
       <Grid container justify="center">
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} lg={6}>
           <Grid
             container
             style={{
@@ -55,7 +55,7 @@ function Signin({ email, setEmail, user, setUser, password, setPassword }) {
             spacing={2}
             justify="center"
           >
-            <Grid item xs={12}>
+            <Grid item xs={12} >
               <TextField
                 type="text"
                 id="outlined-basic"
@@ -96,11 +96,12 @@ function Signin({ email, setEmail, user, setUser, password, setPassword }) {
                     type="submit"
                     size="small"
                   >
-                    <Link to="/signup" style={{   textDecoration:   "none"   }} className="Link">
-                     
-                                                      Create an account
-                    
-                    
+                    <Link
+                      to="/signup"
+                      style={{ textDecoration: "none" }}
+                      className="Link"
+                    >
+                      Create an account
                     </Link>
                   </Button>
                 </Typography>

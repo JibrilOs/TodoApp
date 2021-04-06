@@ -22,10 +22,17 @@ function App() {
 
   //user
   const [user, setUser] = useState("");
+  const [hasAccount, setHasAccount] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleLogout = () => {
     fireBase.auth().signOut();
+  };
+
+  const clearInputs = () => {
+    setEmail("");
+    setPassword("");
+    setUser("");
   };
    useEffect(() => {
      fireBase.auth().onAuthStateChanged((user) => {
@@ -43,7 +50,7 @@ function App() {
     <Router>
       <Container maxWidth="xl" className={classes.root}>
         <Box className={classes.box}>
-          <Navbar handleLogout={handleLogout} />
+          <Navbar handleLogout={handleLogout} clearInputs={clearInputs} />
           {user ? (
             <Typography>Welcome </Typography>
           ) : (
@@ -72,6 +79,7 @@ function App() {
               </Route>
             </Switch>
           )}
+          {console.log(user)}
         </Box>
 
         <CssBaseline />

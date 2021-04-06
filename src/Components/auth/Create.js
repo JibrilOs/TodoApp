@@ -44,7 +44,7 @@ function Create({ email, setEmail, user, setUser, password, setPassword }) {
       style={{ width: "50%", margin: " 22px auto" }}
     >
       <Grid container justify="center">
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} lg={6}>
           <Grid
             container
             style={{

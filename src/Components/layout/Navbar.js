@@ -8,6 +8,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import Dem from "./Demo"
+import { Link, } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar({ handleLogout }) {
+export default function Navbar({ handleLogout, clearInputs }) {
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -32,22 +35,16 @@ export default function Navbar({ handleLogout }) {
   };
 
   const handleClose = () => {
-    handleLogout();;
+    handleLogout();
     setAnchorEl(null);
+    clearInputs();;
   };
 
   return (
     <div className={classes.root}>
       <AppBar position="static" color="secondary">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
+          <Dem  />
           <Typography variant="h6" className={classes.title}>
             Photos
           </Typography>
@@ -79,7 +76,11 @@ export default function Navbar({ handleLogout }) {
               >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Link to="/" style={{ textDecoration: "none" }}>
+                    Logout
+                  </Link>
+                </MenuItem>
               </Menu>
             </div>
           )}
