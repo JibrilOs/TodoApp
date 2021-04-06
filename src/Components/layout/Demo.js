@@ -81,7 +81,11 @@ export default function Dem() {
   return (
     <div>
       <React.Fragment>
-        <Button onClick={toggleDrawer("left", true)} disableRipple>
+        <Button
+          onClick={toggleDrawer("left", true)}
+          disableRipple
+          style={{ color: "white" }}
+        >
           <IconButton
             edge="start"
             className={classes.menuButton}
