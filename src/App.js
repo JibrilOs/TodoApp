@@ -1,8 +1,10 @@
 import "./App.css";
+import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, CssBaseline, Box } from "@material-ui/core";
 import Navbar from "./Components/layout/Navbar"
 import Signin from "./Components/auth/Sigin";
+import Create from "./Components/auth/Create";
 
 const useStyles = makeStyles({
   root: {
@@ -16,15 +18,34 @@ function App() {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="xl" className={classes.root}>
-      <Box className={classes.box} >
-        <Navbar />
-        <Signin />
-      </Box>
+    <Router>
+      <Container maxWidth="xl" className={classes.root}>
+        <Box className={classes.box}>
+          <Navbar />
 
-      <CssBaseline />
-    </Container>
+          <Switch>
+            <Route path="/" exact>
+              <Signin />;
+            </Route>
+            {/* <Route path="/" exact></Route> */}
+            <Route path="/signup" exact>
+              
+              
+              
+              <Create    />
+            
+            
+            
+            </Route>
+          </Switch>
+        </Box>
+
+        <CssBaseline />
+      </Container>
+      ;
+    </Router>
   );
 }
 
 export default App;
+
